@@ -67,7 +67,7 @@ namespace BrouwersService.Controllers
             return Ok(brouwers);
         }
         [HttpDelete]
-        [Route]
+        [Route("{id}")]
         public IHttpActionResult Verwijder(int id)
         {
             if (InMemoryDataBase.Brouwers.ContainsKey(id))
@@ -91,7 +91,7 @@ namespace BrouwersService.Controllers
             return this.Created(this.Request.RequestUri.AbsoluteUri + "/" + id, brouwer);
         }
         [HttpPut]
-        [Route]
+        [Route("{id}")]
         public IHttpActionResult Wijzig(int id, Brouwer brouwer)
         {
             if (!this.ModelState.IsValid)
